@@ -1,4 +1,4 @@
-def remove_missing_row(df):
+def remove_missing_rows(df):
 
     # creates another copy of the dataframe
     unprocessed_missing_df = df.copy()
