@@ -7,7 +7,6 @@ def remove_duplicate_row(processed_missing_df):
   unprocessed_duplicates_ds = len(unprocessed_duplicates_df)
 
   # finds duplicate rows and gets there index (row number)
-  # (Keeping this logic for your duplicates_unprocessed count)
   duplicated_rows_uprocessed = unprocessed_duplicates_df.index[unprocessed_duplicates_df.duplicated()].tolist()
 
   # gets the length of the duplicate rows
