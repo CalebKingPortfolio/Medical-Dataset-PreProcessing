@@ -24,5 +24,5 @@ def remove_duplicate_rows(processed_missing_df):
    # gets the length of the duplicate rows
   duplicates_processed = len(duplicated_rows_processed)
 
-  # returns variables used within the function
+  # return the variables that are used inside this function
   return(unprocessed_duplicates_ds, duplicates_unprocessed, processed_duplicates_ds, duplicates_processed, processed_duplicates_df)
