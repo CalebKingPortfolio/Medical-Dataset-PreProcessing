@@ -1,3 +1,6 @@
+# Import the NumPy library for numerical operations and array handling
+import numpy as np
+
 # MISSING ROWS UNPROCESSED ANALYSIS
 def analyze_missing_rows_unprocessed():
 
