@@ -1,7 +1,7 @@
 # import re library
 import re
 
-def remove_qm_flashcards_function(processed_duplicates_df):
+def drop_output_question_marks(processed_duplicates_df):
 
   # creates another copy of the dataframe
   unprocessed_qm_output_df = processed_duplicates_df.copy()
