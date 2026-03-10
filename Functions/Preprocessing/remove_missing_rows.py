@@ -34,7 +34,7 @@ def remove_missing_rows(df):
     # gets the length of the missing rows
     missing_row_count_processed = len(empty_rows_processed)
 
-   # Return the variables that are used inside this function
+   # return the variables that are used inside this function
     return(unprocessed_missing_ds,
            empty_instruction_rows_unprocessed,
            empty_input_rows_unprocessed,
