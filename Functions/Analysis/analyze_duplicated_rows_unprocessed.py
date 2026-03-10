@@ -19,6 +19,6 @@ def analyze_duplicated_rows_unprocessed(unprocessed_duplicates_ds, duplicates_un
   values = [duplicates_unprocessed]
   mycolors = ["green"]
   plt.bar(labels, values, color=mycolors)
-  plt.title('Duplicates Found')
+  plt.title('Unprocessed - Duplicates Found')
   plt.tight_layout()
   plt.show()
