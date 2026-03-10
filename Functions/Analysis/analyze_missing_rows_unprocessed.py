@@ -2,8 +2,8 @@
 import numpy as np
 
 # MISSING ROWS UNPROCESSED ANALYSIS
-def analyze_missing_rows_unprocessed():
-
+def analyze_missing_rows_unprocessed(unprocessed_missing_ds, missing_row_count_unprocessed, empty_instruction_rows_unprocessed, empty_input_rows_unprocessed, empty_output_rows_unprocessed):
+  
   # line chart showing dataset size - (left)
   x_1 = np.arange(unprocessed_missing_ds)
   plt.figure(figsize=(9, 4)) # sets size of line charts
