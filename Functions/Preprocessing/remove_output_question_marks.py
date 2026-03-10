@@ -1,7 +1,7 @@
 # import re library
 import re
 
-def drop_output_question_marks(processed_duplicates_df):
+def remove_output_question_marks(processed_duplicates_df):
 
   # creates another copy of the dataframe
   unprocessed_qm_output_df = processed_duplicates_df.copy()
