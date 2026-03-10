@@ -1,4 +1,4 @@
-# Import the NumPy library for numerical operations and array handling
+# Import libraries
 import numpy as np
 import matplotlib.pyplot as plt
 
