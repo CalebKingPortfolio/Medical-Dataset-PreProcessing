@@ -1,5 +1,6 @@
 # Import the NumPy library for numerical operations and array handling
 import numpy as np
+import matplotlib.pyplot as plt
 
 # MISSING ROWS UNPROCESSED ANALYSIS
 def analyze_missing_rows_unprocessed(unprocessed_missing_ds, missing_row_count_unprocessed, empty_instruction_rows_unprocessed, empty_input_rows_unprocessed, empty_output_rows_unprocessed):
