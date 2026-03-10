@@ -1,4 +1,4 @@
-def remove_duplicate_row(processed_missing_df):
+def remove_duplicate_rows(processed_missing_df):
 
   # creates another copy of the dataframe
   unprocessed_duplicates_df = processed_missing_df.copy() 
