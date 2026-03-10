@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 # UNPROCESSED FLASHCARD OUTPUTS THAT END WITH QUESTION MARKS
 def analyze_output_question_marks_unprocessed(unprocessed_qm_ds, qm_count_unprocessed,unprocessed_fs_ds):
 
-  # line chart flashcard subset size - (left)
+  # line chart showing unprocessed flashcard subset size - (left)
   x_1 = np.arange(unprocessed_qm_ds)
   plt.figure(figsize=(9, 4)) # sets size of line charts
   plt.subplot(1, 2, 1) # position of linechart
