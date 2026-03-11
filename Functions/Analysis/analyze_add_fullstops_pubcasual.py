@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # FULLSTOP UNPROCESSED / PROCESSED ANALYSIS
-def analysis_add_fullstops_pubcasual(processed_fs_ds, fs_count_unprocessed, fs_count_processed):
+def analyze_add_fullstops_pubcasual(processed_fs_ds, fs_count_unprocessed, fs_count_processed):
 
   # line chart showing subset pubmed size - (left)
   x_1 = np.arange(processed_fs_ds)
