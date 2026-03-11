@@ -1,3 +1,7 @@
+# import libraries
+import numpy as np
+import matplotlib.pyplot as plt
+
 # UNPROCESSED AND PROCESSED FILTERED LARGE AND SMALL VALUES
 def analyze_filtered_rows(unprocessed_filtered_ds, total_droped, processed_filtered_ds):
 
