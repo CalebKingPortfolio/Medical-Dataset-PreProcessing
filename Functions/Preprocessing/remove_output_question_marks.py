@@ -7,7 +7,7 @@ def remove_output_question_marks(processed_duplicates_df):
   unprocessed_qm_output_df = processed_duplicates_df.copy()
 
   # gets the length of the unprocessed dataframe
-  unprocessed_fs_ds = len(unprocessed_qm_output_df)
+  unprocessed_qmfs_ds = len(unprocessed_qm_output_df)
 
   # get the length of rows from the 'medical_meadow_medical_flashcards' subset
   unprocessed_qm_ds = (unprocessed_qm_output_df['subset_source'] == 'medical_meadow_medical_flashcards').sum()
@@ -37,7 +37,7 @@ def remove_output_question_marks(processed_duplicates_df):
   processed_qm_ds = (processed_qm_output_df['subset_source'] == 'medical_meadow_medical_flashcards').sum()
 
   # gets the length of the processed dataframe
-  processed_fs_ds = len(processed_qm_output_df)
+  processed_qmfs_ds = len(processed_qm_output_df)
   
   # return the variables that are used inside this function
-  return(unprocessed_fs_ds, processed_fs_ds, unprocessed_qm_ds, qm_count_unprocessed, qm_count_processed, processed_qm_ds, processed_qm_output_df)
+  return(unprocessed_qmfs_ds, processed_qmfs_ds, unprocessed_qm_ds, qm_count_unprocessed, qm_count_processed, processed_qm_ds, processed_qm_output_df)
