@@ -1,52 +1,44 @@
 import re
 
 def fix_cutoff_alpacare(processed_filtered_df):
+    # 1. CRITICAL: Reset the index to prevent Pandas from dropping the wrong rows 
+    df = processed_filtered_df.copy().reset_index(drop=True)
 
-    # creates a copy so the original dataframe outside the function stays safe
-    unprocessed_alpa_df = processed_filtered_df.copy()
+    # 2. Get the subset mask
+    alpac_mask = df['subset_source'] == 'AlpaCare-52k'
 
-    # gets the subset used
-    alpac_subset = unprocessed_alpa_df['subset_source'] == 'AlpaCare-52k'
+    unprocessed_cutoff_ds = len(df)
+    unprocessed_alpa_ds = alpac_mask.sum()
 
-    # gets the length of the unprocessed dataframe
-    unprocessed_cutoff_ds = len(unprocessed_alpa_df)
+    # 3. Safely strip whitespace only from text columns 
+    text_cols = ['instruction', 'input', 'output']
+    for col in text_cols:
+        if col in df.columns:
+            df.loc[alpac_mask, col] = df.loc[alpac_mask, col].astype(str).str.strip()
 
-    # get the length of rows from the 'AlpaCare-52k' subset
-    unprocessed_alpa_ds = len(unprocessed_alpa_df[alpac_subset])
+    # 4. Helper function to check for missing punctuation
+    def is_missing_punctuation(text):
+        # Returns True if NO punctuation is found at the very end
+        return len(re.findall(r'([.?\"\'\]!\)]\s*$)', str(text))) == 0
 
-    # strips the rows
-    unprocessed_alpa_df.loc[alpac_subset] = (unprocessed_alpa_df.loc[alpac_subset].astype(str).apply(lambda x: x.str.strip()))
-
-    # find rows which are cut off and over 1200 characters
-    is_cut_off = unprocessed_alpa_df.loc[alpac_subset, 'output'].apply(
-        lambda x: (len(re.findall(r'(?i)([.?\"\]!\)]\s*$)', str(x))) == 0)
-    )
-
-    # sum of rows found
+    # 5. Apply the check and find rows to drop
+    is_cut_off = df.loc[alpac_mask, 'output'].apply(is_missing_punctuation)
     unprocessed_cut_off_count = is_cut_off.sum()
 
-    # gets the index of the rows (Slightly cleaner syntax)
     indices_to_drop = is_cut_off[is_cut_off].index
 
-    # drops the rows which are cut off and over 1200 characters
-    processed_alpa_df = unprocessed_alpa_df.drop(index=indices_to_drop)
+    # 6. Drop the bad rows using our newly cleaned, unique index
+    processed_df = df.drop(index=indices_to_drop)
 
-    # gets the NEW subset mask for the processed dataframe
-    alpac_subset_new = processed_alpa_df['subset_source'] == 'AlpaCare-52k'
+    # 7. Recalculate stats for the processed dataframe
+    processed_alpa_ds = (processed_df['subset_source'] == 'AlpaCare-52k').sum()
+    processed_cutoff_ds = len(processed_df)
 
-    # get the length of rows from the 'AlpaCare-52k' subset processed
-    processed_alpa_ds = len(processed_alpa_df[alpac_subset_new])
-
-    # gets the length of the processed dataframe 
-    processed_cutoff_ds = len(processed_alpa_df)
-
-    # check the processed dataframe for the final count, not the unprocessed one
-    is_cut_off_final = processed_alpa_df.loc[alpac_subset_new, 'output'].apply(
-        lambda x: (len(re.findall(r'(?i)([.?\"\]!\)]\s*$)', str(x))) == 0)
-    )
+    # 8. Final verification count
+    is_cut_off_final = processed_df.loc[processed_df['subset_source'] == 'AlpaCare-52k', 'output'].apply(is_missing_punctuation)
     processed_cut_off_count = is_cut_off_final.sum()
 
-    # return the variables that are used inside this function
+    # Return without the duplicate variable
     return (unprocessed_cutoff_ds, unprocessed_alpa_ds, processed_alpa_ds, 
             unprocessed_cut_off_count, processed_cutoff_ds, 
-            processed_cut_off_count, processed_alpa_df)
+            processed_cut_off_count, processed_df)
