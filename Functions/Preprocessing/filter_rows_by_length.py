@@ -1,7 +1,7 @@
 def filter_rows_by_length(processed_spaces_df):
 
   # minumin and maximum row size
-  min_total_chars = 50
+  min_total_chars = 25
   max_output_chars = 2000
   min_output_chars = 5 
 
