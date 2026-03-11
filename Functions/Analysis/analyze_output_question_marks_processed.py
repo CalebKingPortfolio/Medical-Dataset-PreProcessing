@@ -20,6 +20,7 @@ def analyze_output_question_marks_processed(processed_qm_ds, qm_count_processed,
   mycolors = ["red"]
   plt.bar(labels, values, color=mycolors)
   plt.title('Output Questions Marks Count')
+  plt.ylim(0)
   plt.tight_layout()
   plt.show()
 
