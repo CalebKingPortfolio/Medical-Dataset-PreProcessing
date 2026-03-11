@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # UNPROCESSED FLASHCARD OUTPUTS THAT END WITH QUESTION MARKS
-def analyze_output_question_marks_unprocessed(unprocessed_qm_ds, qm_count_unprocessed,unprocessed_fs_ds):
+def analyze_output_question_marks_unprocessed(unprocessed_qm_ds, qm_count_unprocessed,unprocessed_qmfs_ds):
 
   # line chart showing unprocessed flashcard subset size - (left)
   x_1 = np.arange(unprocessed_qm_ds)
@@ -24,10 +24,10 @@ def analyze_output_question_marks_unprocessed(unprocessed_qm_ds, qm_count_unproc
   plt.show()
 
   #  bar chart showing unprocessed dataset size - (bottom)
-  x_2 = np.arange(unprocessed_fs_ds)
+  x_2 = np.arange(unprocessed_qmfs_ds)
   plt.figure(figsize=(23, 4))
   plt.subplot(1, 2, 1)
-  plt.plot(x_2, x_2, color='green', label=f"Rows {unprocessed_fs_ds:,}")
+  plt.plot(x_2, x_2, color='green', label=f"Rows {unprocessed_qmfs_ds:,}")
   plt.title("Unprocessed - Dataset Size")
   plt.legend()
   plt.ylim(0)
