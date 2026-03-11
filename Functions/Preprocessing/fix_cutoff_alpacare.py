@@ -42,7 +42,7 @@ def fix_cutoff_alpacare(processed_filtered_df):
   is_cut_off_final = unprocessed_alpa_df.loc[alpac_subset, 'output'].apply(
       lambda x: (len(re.findall(r'(?i)([.?\"\]!\)]\s*$)', str(x))) == 0) and (len(str(x)) > 1200)
   )
-  cut_off_processed_count = is_cut_off.sum()
+  cut_off_processed_count = is_cut_off_final.sum()
 
   # return the variables that are used inside this function
   return(unprocessed_cutoff_ds, unprocessed_alpa_ds, processed_alpa_ds, cut_off_unprocessed_count, processed_cutoff_ds, cut_off_processed_count, processed_alpa_df)
