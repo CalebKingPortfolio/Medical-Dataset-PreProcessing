@@ -21,13 +21,13 @@ def remove_output_question_marks(processed_duplicates_df):
   # gets the length of the subset with question marks (using \s* to catch hidden spaces)
   qm_count_unprocessed = unprocessed_qm_output_df[flashcards_subset]['output'].astype(str).apply(lambda x: len(re.findall(r'\?', x))).sum()
 
-  # checks which output lines end in question marks 
+  # checks which output rows have question marks 
   unprocessed_qm = unprocessed_qm_output_df[flashcards_subset]['output'].astype(str).str.contains(r'\?', regex=True)
 
-  # gets the index value of the outputs ending in question marks
+  # gets the index value of the outputs with question marks
   question_mark_indices = unprocessed_qm_output_df[flashcards_subset][unprocessed_qm].index.tolist()
 
-  # removes the output values ending in question marks
+  # removes the output values with question marks
   processed_qm_output_df = unprocessed_qm_output_df.drop(index=question_mark_indices)
 
   # recalculates the count after dropping to verify it is now 0
