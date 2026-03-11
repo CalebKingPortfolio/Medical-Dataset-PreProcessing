@@ -1,7 +1,7 @@
 # import re library
 import re
 
-def remove_extra_spaces_function(processed_qm_output_df):
+def remove_extra_spaces(processed_qm_output_df):
 
   # creates another copy of the dataframe
   unprocessed_spaces_df = processed_qm_output_df.copy()
