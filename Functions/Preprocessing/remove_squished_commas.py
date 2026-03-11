@@ -1,6 +1,6 @@
 import re
 
-def remove_squished_commas_function(processed_spaces_df):
+def remove_squished_commas(processed_spaces_df):
 
   # gives the dataframe another name
   unprocessed_commas_df = processed_spaces_df.copy()
