@@ -48,5 +48,5 @@ def fix_cutoff_alpacare(processed_filtered_df):
 
     # return the variables that are used inside this function
     return (unprocessed_cutoff_ds, unprocessed_alpa_ds, processed_alpa_ds, 
-            cut_off_unprocessed_count, processed_cutoff_ds, 
-            cut_off_processed_count, processed_alpa_df)
+            unprocessed_cut_off_count, processed_cutoff_ds, 
+            processed_cut_off_count, processed_alpa_df)
