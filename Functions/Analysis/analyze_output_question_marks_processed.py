@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # PROCESSED FLASHCARD OUTPUTS THAT END WITH QUESTION MARKS
-def analyze_output_question_marks_processed(processed_qm_ds, qm_count_processed, processed_fs_ds):
+def analyze_output_question_marks_processed(processed_qm_ds, qm_count_processed, processed_qmfs_ds):
 
   # line chart showing processed flashcard subset size - (left)
   x_1 = np.arange(processed_qm_ds)
@@ -25,10 +25,10 @@ def analyze_output_question_marks_processed(processed_qm_ds, qm_count_processed,
   plt.show()
 
   #  bar chart showing processed dataset size - (bottom)
-  x_2 = np.arange(processed_fs_ds)
+  x_2 = np.arange(processed_qmfs_ds)
   plt.figure(figsize=(23, 4))
   plt.subplot(1, 2, 1)
-  plt.plot(x_2, x_2, color='green', label=f"Rows {processed_fs_ds:,}")
+  plt.plot(x_2, x_2, color='green', label=f"Rows {processed_qmfs_ds:,}")
   plt.title("Processed - Dataset Size")
   plt.legend()
   plt.ylim(0)
