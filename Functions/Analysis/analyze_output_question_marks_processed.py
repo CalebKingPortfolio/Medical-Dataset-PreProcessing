@@ -10,7 +10,7 @@ def analyze_output_question_marks_processed(processed_qm_ds, qm_count_processed,
   plt.figure(figsize=(9, 4)) # sets size of line charts
   plt.subplot(1, 2, 1) # position of linechart
   plt.plot(x_1, x_1, color='blue', label=f"Rows {processed_qm_ds:,}")
-  plt.title("Unprocessed - Flashcard Subset Size")
+  plt.title("Processed - Flashcard Subset Size")
   plt.legend()
 
   # bar chart showing question mark count in outputs - (right)
@@ -28,7 +28,7 @@ def analyze_output_question_marks_processed(processed_qm_ds, qm_count_processed,
   plt.figure(figsize=(23, 4))
   plt.subplot(1, 2, 1)
   plt.plot(x_2, x_2, color='green', label=f"Rows {processed_fs_ds:,}")
-  plt.title("Unprocessed - Dataset Size")
+  plt.title("Processed - Dataset Size")
   plt.legend()
   plt.ylim(0)
   plt.show()
