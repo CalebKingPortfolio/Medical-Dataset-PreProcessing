@@ -19,7 +19,7 @@ def fix_cutoff_alpacare(processed_filtered_df):
 
     # find rows which are cut off and over 1200 characters
     is_cut_off = unprocessed_alpa_df.loc[alpac_subset, 'output'].apply(
-        lambda x: (len(re.findall(r'(?i)([.?\"\]!\)]\s*$)', str(x))) == 0) and (len(str(x)) > 1200)
+        lambda x: (len(re.findall(r'(?i)([.?\"\]!\)]\s*$)', str(x))) == 0) and (len(str(x)) > 0)
     )
 
     # sum of rows found
@@ -42,7 +42,7 @@ def fix_cutoff_alpacare(processed_filtered_df):
 
     # check the processed dataframe for the final count, not the unprocessed one
     is_cut_off_final = processed_alpa_df.loc[alpac_subset_new, 'output'].apply(
-        lambda x: (len(re.findall(r'(?i)([.?\"\]!\)]\s*$)', str(x))) == 0) and (len(str(x)) > 1200)
+        lambda x: (len(re.findall(r'(?i)([.?\"\]!\)]\s*$)', str(x))) == 0) and (len(str(x)) > 0)
     )
     processed_cut_off_count = is_cut_off_final.sum()
 
