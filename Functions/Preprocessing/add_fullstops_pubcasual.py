@@ -6,7 +6,7 @@ def add_fullstops_pubcasual(processed_qm_output_df):
   # creates a copy so the original dataframe outside the function stays safe
   unprocessed_fs_output_df = processed_qm_output_df.copy() 
 
-  # get the length of rows from the 'medical_meadow_medical_flashcards' subset
+  # get the length of rows from the 'medical_meadow_pubmed_causal' subset
   processed_fs_ds = (unprocessed_qm_output_df['subset_source'] == 'medical_meadow_pubmed_causal').sum()
 
   # gets the subset used
